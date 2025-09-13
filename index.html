@@ -1,158 +1,191 @@
 <!DOCTYPE html>
-<html lang="ms">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Makwe's Family Day 2025</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #FF6347, #FFD700, #8A2BE2);
-      color: #333;
-      text-align: center;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family Day Invitation</title>
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Arial', sans-serif; }
+    body, html { width:100%; height:100%; overflow:hidden; background:#1c1c1c; color:#fff; position:relative; }
+
+    /* Canvas for dynamic shapes */
+    canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
+
+    .container {
+        position:relative;
+        z-index:2;
+        height:100vh;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
     }
-    header {
-      background: #FF4500;
-      color: white;
-      padding: 2rem 1rem;
-      border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
+
+    h1 { font-size:3em; margin-bottom:20px; }
+    .countdown { font-size:2em; margin-bottom:30px; }
+
+    .vinyl {
+        width:150px; height:150px;
+        border-radius:50%;
+        background: radial-gradient(circle at 50% 50%, #000 0%, #111 70%, #222 100%);
+        border:3px solid #555;
+        margin-bottom:30px;
+        animation: spin 4s linear infinite;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+    .rsvp-btn {
+        padding:15px 30px;
+        background:#ff6f61;
+        border:none;
+        border-radius:10px;
+        color:#fff;
+        font-size:1.2em;
+        cursor:pointer;
+        position:relative;
+        overflow:hidden;
     }
-    header p {
-      margin: 0.5rem 0;
+    .rsvp-btn:active { transform:scale(0.95); }
+
+    .confetti-piece {
+        position:absolute;
+        width:10px; height:10px;
+        opacity:0.8;
+        pointer-events:none;
+        animation: confetti-fall 2s linear forwards;
     }
-    section {
-      margin: 2rem auto;
-      padding: 1.5rem;
-      max-width: 900px;
-      background: white;
-      border-radius: 15px;
-      text-align: left;
-      box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+    @keyframes confetti-fall {
+        0% { transform: translateY(0) rotate(0deg); opacity:1; }
+        100% { transform: translateY(300px) rotate(720deg); opacity:0; }
     }
-    h2 {
-      color: #FF4500;
-      margin-top: 0;
+
+    .music-btn {
+        margin-top:20px;
+        padding:10px 20px;
+        border:none;
+        border-radius:50px;
+        background:#6a5acd;
+        color:#fff;
+        cursor:pointer;
+        font-size:1em;
     }
-    .groups {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: space-around;
-      margin-top: 1rem;
-    }
-    .group {
-      flex: 1 1 200px;
-      padding: 1rem;
-      background: #FF6F61;
-      color: white;
-      border-radius: 12px;
-      transition: transform 0.3s;
-    }
-    .group:nth-child(2) { background: #6C5CE7; }
-    .group:nth-child(3) { background: #00B894; }
-    .group:nth-child(4) { background: #FDCA40; }
-    .group:hover {
-      transform: scale(1.05);
-    }
-    button {
-      margin: 1rem;
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 8px;
-      background: #FF4500;
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button:hover {
-      background: #e63946;
-    }
-    a {
-      color: white;
-      text-decoration: underline;
-    }
-    audio {
-      display: none; /* atau boleh tunjuk ikon */
-    }
-  </style>
+    .music-btn.playing { animation: pulse 1s infinite; }
+    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+</style>
 </head>
 <body>
-  <header>
-    <h1>Makwe's Family Day 2025</h1>
-    <p>13–15 September 2025</p>
-    <p>📍 <a href="https://maps.app.goo.gl/xxxx" target="_blank">Afamosa Resort, Melaka</a></p>
-  </header>
 
-  <section>
-    <h2>📋 Tentatif Aktiviti</h2>
-    <p><strong>13 Sept (Sabtu)</strong> – Chanting Out Loud, Colour Blind</p>
-    <p><strong>14 Sept (Ahad Pagi)</strong> – Zumba, Gerakan Rosak</p>
-    <p><strong>14 Sept (Ahad Petang)</strong> – Cham Cham Cham (Pool Version), Pool Volley</p>
-    <p><strong>14 Sept (Ahad Malam)</strong> – BBQ Night, Penyampaian Hadiah, Cabutan Bertuah</p>
-  </section>
+<canvas id="bgCanvas"></canvas>
 
-  <section>
-    <h2>🔥 Senarai Kumpulan</h2>
-    <div class="groups">
-      <div class="group">
-        <p><strong>Kumpulan 1</strong></p>
-        <ul>
-          <li>Pakngah</li><li>Along Boy</li><li>Syafiq</li><li>Moksu</li>
-          <li>Fatima</li><li>Mokde</li><li>Topek</li><li>Qusai</li>
-        </ul>
-      </div>
-      <div class="group">
-        <p><strong>Kumpulan 2</strong></p>
-        <ul>
-          <li>Pokde</li><li>Amat (Erin)</li><li>Marsya</li><li>Luqman Hakim</li>
-          <li>Makcik</li><li>Ika Hisyam</li><li>Muiz</li><li>Zahir</li><li>Zharfan</li>
-        </ul>
-      </div>
-      <div class="group">
-        <p><strong>Kumpulan 3</strong></p>
-        <ul>
-          <li>Pakcik</li><li>Iwan</li><li>Ika Topek</li><li>Wardah</li>
-          <li>Kak Erin</li><li>Makngah</li><li>Hafiz</li><li>Pakndak</li><li>Areesa</li>
-        </ul>
-      </div>
-      <div class="group">
-        <p><strong>Kumpulan 4</strong></p>
-        <ul>
-          <li>Poksu</li><li>Hisyam</li><li>Dila</li><li>Makndak</li>
-          <li>Zack</li><li>Mokteh</li><li>Afham</li><li>Niza</li><li>Irfan</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+<div class="container">
+    <h1>Family Day 2025</h1>
+    <div class="countdown" id="countdown">Loading...</div>
+    <div class="vinyl"></div>
+    <button class="rsvp-btn" id="rsvpBtn">Hadir</button>
+    <button class="music-btn" id="musicBtn">Play Music</button>
+</div>
 
-  <section>
-    <h2>✅ RSVP Kehadiran</h2>
-    <button onclick="submitRSVP('Hadir')">✅ Hadir</button>
-    <button onclick="submitRSVP('Tak Hadir')">❌ Tak Hadir</button>
-  </section>
+<audio id="bgMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
 
-  <audio autoplay loop>
-    <source src="pretty-little-baby.mp3" type="audio/mpeg">
-  </audio>
-
-  <script>
-    function submitRSVP(status) {
-      fetch("https://script.google.com/macros/s/AKfycbxSUySxWAKx9gH_-Cjcow0IN72qKqHu_vdApbaohA_KAngAErFQ2sHGLVPGehjBvhKYkQ/exec", {
-        method: "POST",
-        body: JSON.stringify({ response: status }),
-        headers: { "Content-Type": "application/json" }
-      })
-      .then(res => alert("RSVP anda telah direkodkan: " + status))
-      .catch(err => alert("Error: " + err));
+<script>
+    // Countdown
+    function countdownTimer() {
+        const countdownEl = document.getElementById('countdown');
+        const targetDate = new Date('2025-09-13T15:00:00+08:00');
+        const now = new Date();
+        const diff = targetDate - now;
+        if(diff <= 0){ countdownEl.innerHTML = "Event Started!"; return; }
+        const hours = Math.floor(diff/1000/60/60);
+        const minutes = Math.floor(diff/1000/60)%60;
+        const seconds = Math.floor(diff/1000)%60;
+        countdownEl.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
     }
-  </script>
+    setInterval(countdownTimer, 1000);
+    countdownTimer();
+
+    // RSVP Confetti
+    const rsvpBtn = document.getElementById('rsvpBtn');
+    rsvpBtn.addEventListener('click', () => {
+        for(let i=0;i<50;i++){
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti-piece');
+            confetti.style.left = Math.random()*rsvpBtn.offsetWidth + 'px';
+            confetti.style.background = `hsl(${Math.random()*360}, 100%, 70%)`;
+            rsvpBtn.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 2000);
+        }
+    });
+
+    // Music Button
+    const musicBtn = document.getElementById('musicBtn');
+    const bgMusic = document.getElementById('bgMusic');
+    musicBtn.addEventListener('click', () => {
+        if(bgMusic.paused){
+            bgMusic.play(); musicBtn.classList.add('playing'); musicBtn.innerText = "Pause Music";
+        } else {
+            bgMusic.pause(); musicBtn.classList.remove('playing'); musicBtn.innerText = "Play Music";
+        }
+    });
+
+    // Dynamic Background Shapes
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const shapes = [];
+    const shapeCount = 50;
+
+    class Shape {
+        constructor() {
+            this.reset();
+        }
+        reset() {
+            this.x = Math.random()*canvas.width;
+            this.y = Math.random()*canvas.height;
+            this.size = 20 + Math.random()*30;
+            this.speedX = -0.5 + Math.random();
+            this.speedY = -0.2 + Math.random()*0.4;
+            this.color = `hsla(${Math.random()*360}, 70%, 50%, 0.1)`;
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.moveTo(this.x, this.y);
+            for(let i=0;i<3;i++){
+                ctx.lineTo(this.x + this.size*Math.cos((i*120)*Math.PI/180), this.y + this.size*Math.sin((i*120)*Math.PI/180));
+            }
+            ctx.closePath();
+            ctx.fillStyle = this.color;
+            ctx.fill();
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if(this.x < -50 || this.x>canvas.width+50 || this.y<-50 || this.y>canvas.height+50){
+                this.reset();
+            }
+            this.draw();
+        }
+    }
+
+    for(let i=0;i<shapeCount;i++){ shapes.push(new Shape()); }
+
+    function animate() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        shapes.forEach(s=>s.update());
+        requestAnimationFrame(animate);
+    }
+    animate();
+
+    window.addEventListener('resize', ()=>{
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+
+</script>
 </body>
 </html>
