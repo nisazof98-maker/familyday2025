@@ -1,132 +1,37 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Family Day 2025</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
-      color: #fff;
-      text-align: center;
-      overflow-x: hidden;
-      position: relative;
-    }
-    header {
-      padding: 2rem;
-      background: #111;
-      color: #facc15;
-      font-size: 2rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-    #countdown {
-      font-size: 1.5rem;
-      margin: 1rem 0;
-      color: #38bdf8;
-    }
-    .tentative, .groups {
-      margin: 2rem auto;
-      max-width: 900px;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      background: rgba(255, 255, 255, 0.05);
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
-      animation: fadeIn 1.2s ease-in;
-    }
-    .groups {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .group {
-      flex: 1 1 200px;
-      padding: 1rem;
-      border-radius: 1rem;
-      background: rgba(250, 204, 21, 0.1);
-      border: 1px solid #facc15;
-      transition: transform 0.3s;
-    }
-    .group:hover {
-      transform: scale(1.05);
-      background: rgba(250, 204, 21, 0.2);
-    }
-    .group h3 {
-      margin-bottom: 0.5rem;
-      color: #facc15;
-    }
-    .rsvp-buttons {
-      margin: 2rem 0;
-    }
-    .rsvp-buttons button {
-      margin: 0.5rem;
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 0.5rem;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-    .rsvp-buttons button:hover {
-      transform: scale(1.1);
-    }
-    .yes {
-      background: #22c55e;
-      color: white;
-    }
-    .no {
-      background: #ef4444;
-      color: white;
-    }
-    footer {
-      margin-top: 2rem;
-      padding: 1rem;
-      background: #111;
-      color: #aaa;
-      font-size: 0.9rem;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family Day 2025</title>
+<style>
+body {
+  margin:0; font-family:'Segoe UI',sans-serif; background:linear-gradient(135deg,#1a1a1a,#2c2c2c);
+  color:#fff; text-align:center; overflow-x:hidden; position:relative;
+}
+header { padding:2rem; background:#111; color:#facc15; font-size:2rem; font-weight:bold; letter-spacing:2px; }
+#countdown { font-size:1.5rem; margin:1rem 0; color:#38bdf8; }
+.tentative, .groups { margin:2rem auto; max-width:900px; padding:1.5rem; border-radius:1rem; background: rgba(255,255,255,0.05); box-shadow:0 0 20px rgba(0,0,0,0.4); animation:fadeIn 1.2s ease-in; }
+.groups { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.group { flex:1 1 200px; padding:1rem; border-radius:1rem; background:rgba(250,204,21,0.1); border:1px solid #facc15; transition:transform 0.3s; }
+.group:hover { transform:scale(1.05); background:rgba(250,204,21,0.2); }
+.group h3 { margin-bottom:0.5rem; color:#facc15; }
+.rsvp-buttons { margin:2rem 0; }
+.rsvp-buttons button { margin:0.5rem; padding:0.8rem 1.5rem; border:none; border-radius:0.5rem; font-size:1rem; cursor:pointer; transition:transform 0.2s; }
+.rsvp-buttons button:hover { transform:scale(1.1); }
+.yes { background:#22c55e; color:white; }
+.no { background:#ef4444; color:white; }
+footer { margin-top:2rem; padding:1rem; background:#111; color:#aaa; font-size:0.9rem; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
 
-    /* 🎵 Music Button */
-    #music-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #facc15;
-      color: #111;
-      border: none;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-      transition: transform 0.2s;
-    }
-    #music-btn:hover {
-      transform: scale(1.1);
-    }
+#music-btn { position:fixed; bottom:20px; right:20px; background:#facc15; color:#111; border:none; border-radius:50%; width:60px; height:60px; font-size:1.5rem; cursor:pointer; box-shadow:0 4px 15px rgba(0,0,0,0.4); transition:transform 0.2s; }
+#music-btn:hover { transform:scale(1.1); }
 
-    /* Vinyl Disc */
-    .vinyl {
-      width:150px; height:150px;
-      border-radius:50%;
-      background: radial-gradient(circle at 50% 50%, #000 0%, #111 70%, #222 100%);
-      border:3px solid #555;
-      margin: 2rem auto;
-      animation: spin 4s linear infinite;
-    }
-    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+.vinyl { width:150px; height:150px; border-radius:50%; background:radial-gradient(circle at 50% 50%,#000 0%,#111 70%,#222 100%); border:3px solid #555; margin:2rem auto; animation:spin 4s linear infinite; }
+@keyframes spin { 0% {transform:rotate(0deg);} 100% {transform:rotate(360deg);} }
 
-    /* Dynamic Background Shapes */
-    canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
-  </style>
+canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
+</style>
 </head>
 <body>
 
@@ -136,35 +41,23 @@
 <div id="countdown">Loading countdown...</div>
 
 <section class="tentative">
-  <h2>📋 Tentatif Program</h2>
-  <p><b>13 Sept 2025 – Sabtu</b><br> Chanting Out Loud, Colour Blind</p>
-  <p><b>14 Sept 2025 – Ahad (Pagi)</b><br> Zumba, Gerakan Rosak</p>
-  <p><b>14 Sept 2025 – Ahad (Petang)</b><br> Cham Cham Cham Pool Version, Pool Volley</p>
-  <p><b>14 Sept 2025 – Ahad (Malam)</b><br> BBQ Night, Penyampaian Hadiah, Cabutan Bertuah</p>
+<h2>📋 Tentatif Program</h2>
+<p><b>13 Sept 2025 – Sabtu</b><br> Chanting Out Loud, Colour Blind</p>
+<p><b>14 Sept 2025 – Ahad (Pagi)</b><br> Zumba, Gerakan Rosak</p>
+<p><b>14 Sept 2025 – Ahad (Petang)</b><br> Cham Cham Cham Pool Version, Pool Volley</p>
+<p><b>14 Sept 2025 – Ahad (Malam)</b><br> BBQ Night, Penyampaian Hadiah, Cabutan Bertuah</p>
 </section>
 
 <section class="groups">
-  <div class="group">
-    <h3>Kumpulan 1 🔥</h3>
-    <p>Pakngah, Along Boy, Syafiq, Moksu, Fatima, Mokde, Topek, Qusai</p>
-  </div>
-  <div class="group">
-    <h3>Kumpulan 2 🔥</h3>
-    <p>Pokde, Amat (Erin), Marsya, Luqman Hakim, Makcik, Ika Hisyam, Muiz, Zahir, Zharfan</p>
-  </div>
-  <div class="group">
-    <h3>Kumpulan 3 🔥</h3>
-    <p>Pakcik, Iwan, Ika Topek, Wardah, Kak Erin, Makngah, Hafiz, Pakndak, Areesa</p>
-  </div>
-  <div class="group">
-    <h3>Kumpulan 4 🔥</h3>
-    <p>Poksu, Hisyam, Dila, Makndak, Zack, Mokteh, Afham, Niza, Irfan</p>
-  </div>
+<div class="group"><h3>Kumpulan 1 🔥</h3><p>Pakngah, Along Boy, Syafiq, Moksu, Fatima, Mokde, Topek, Qusai</p></div>
+<div class="group"><h3>Kumpulan 2 🔥</h3><p>Pokde, Amat (Erin), Marsya, Luqman Hakim, Makcik, Ika Hisyam, Muiz, Zahir, Zharfan</p></div>
+<div class="group"><h3>Kumpulan 3 🔥</h3><p>Pakcik, Iwan, Ika Topek, Wardah, Kak Erin, Makngah, Hafiz, Pakndak, Areesa</p></div>
+<div class="group"><h3>Kumpulan 4 🔥</h3><p>Poksu, Hisyam, Dila, Makndak, Zack, Mokteh, Afham, Niza, Irfan</p></div>
 </section>
 
 <div class="rsvp-buttons">
-  <button class="yes" onclick="submitRSVP('Hadir')">✅ Hadir</button>
-  <button class="no" onclick="submitRSVP('Tidak Hadir')">❌ Tak Hadir</button>
+<button class="yes" onclick="submitRSVP('Hadir')">✅ Hadir</button>
+<button class="no" onclick="submitRSVP('Tidak Hadir')">❌ Tak Hadir</button>
 </div>
 
 <div class="vinyl"></div>
@@ -172,107 +65,61 @@
 <footer>© Family Day 2025 | dibuat dengan ❤️</footer>
 
 <!-- Background Music -->
-<audio id="bg-music" autoplay loop hidden>
+<audio id="bg-music" loop>
   <source src="audio/PrettyLittleBaby.mp3" type="audio/mpeg">
 </audio>
+<button id="music-btn">🎵 Main Lagu</button>
 
-
-<!-- Music Button -->
-<button id="music-btn">🎵</button>
-
-<!-- Countdown Script -->
-<script>
-  const countdownEl = document.getElementById("countdown");
-  const eventDate = new Date("2025-09-13T15:00:00+08:00").getTime();
-
-  setInterval(() => {
-    const now = new Date().getTime();
-    const distance = eventDate - now;
-    if (distance < 0) { countdownEl.innerHTML = "🎊 Family Day is happening now!"; return; }
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    countdownEl.innerHTML = `${days}h ${hours}j ${minutes}m ${seconds}s lagi 🎉`;
-  }, 1000);
-
-  async function submitRSVP(status) {
-    try {
-      await fetch("YOUR_GOOGLE_SCRIPT_URL_HERE", {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ status })
-      });
-      if (status === "Hadir") {
-        confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
-      } else {
-        alert("Okay noted, jumpa lain kali ❤️");
-      }
-    } catch (error) {
-      console.error("RSVP error:", error);
-    }
-  }
-
-  // Music Button
-  const music = document.getElementById("bg-music");
-  const musicBtn = document.getElementById("music-btn");
-  let isPlaying = true;
-  musicBtn.addEventListener("click", () => {
-    if (isPlaying) { music.pause(); musicBtn.textContent = "🔇"; }
-    else { music.play(); musicBtn.textContent = "🎵"; }
-    isPlaying = !isPlaying;
-  });
-</script>
-
-<!-- Confetti Script -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
-<!-- Dynamic Background Shapes -->
 <script>
-const canvas = document.getElementById('bgCanvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-const shapes = [];
-const shapeCount = 50;
-class Shape {
-  constructor() { this.reset(); }
-  reset() {
-    this.x = Math.random()*canvas.width;
-    this.y = Math.random()*canvas.height;
-    this.size = 20 + Math.random()*30;
-    this.speedX = -0.5 + Math.random();
-    this.speedY = -0.2 + Math.random()*0.4;
-    this.color = `hsla(${Math.random()*360}, 70%, 50%, 0.1)`;
-  }
-  draw() {
-    ctx.beginPath();
-    ctx.moveTo(this.x, this.y);
-    for(let i=0;i<3;i++){
-      ctx.lineTo(this.x + this.size*Math.cos((i*120)*Math.PI/180), this.y + this.size*Math.sin((i*120)*Math.PI/180));
-    }
-    ctx.closePath();
-    ctx.fillStyle = this.color;
-    ctx.fill();
-  }
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-    if(this.x < -50 || this.x>canvas.width+50 || this.y<-50 || this.y>canvas.height+50){ this.reset(); }
-    this.draw();
-  }
+// Countdown
+const countdownEl = document.getElementById("countdown");
+const eventDate = new Date("2025-09-13T15:00:00+08:00").getTime();
+setInterval(() => {
+  const now = new Date().getTime();
+  const distance = eventDate - now;
+  if(distance<0){ countdownEl.innerHTML="🎊 Family Day is happening now!"; return; }
+  const days=Math.floor(distance/(1000*60*60*24));
+  const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+  const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+  const seconds=Math.floor((distance%(1000*60))/1000);
+  countdownEl.innerHTML=`${days}h ${hours}j ${minutes}m ${seconds}s lagi 🎉`;
+},1000);
+
+// RSVP
+async function submitRSVP(status){
+  try{
+    await fetch("YOUR_GOOGLE_SCRIPT_URL_HERE",{ method:"POST", mode:"no-cors", headers:{"Content-Type":"application/json"}, body:JSON.stringify({status}) });
+    if(status==="Hadir"){ confetti({ particleCount:200, spread:100, origin:{y:0.6} }); }
+    else{ alert("Okay noted, jumpa lain kali ❤️"); }
+  }catch(err){ console.error(err); }
+}
+
+// Music Button
+const music=document.getElementById("bg-music");
+const musicBtn=document.getElementById("music-btn");
+musicBtn.addEventListener("click",()=>{
+  music.play().catch(err=>{ alert("Tekan play pada audio control untuk mula bunyi"); });
+});
+</script>
+
+<script>
+// Dynamic background shapes
+const canvas=document.getElementById('bgCanvas');
+const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth; canvas.height=window.innerHeight;
+const shapes=[]; const shapeCount=50;
+class Shape{ constructor(){this.reset();}
+reset(){ this.x=Math.random()*canvas.width; this.y=Math.random()*canvas.height; this.size=20+Math.random()*30; this.speedX=-0.5+Math.random(); this.speedY=-0.2+Math.random()*0.4; this.color=`hsla(${Math.random()*360},70%,50%,0.1)`;}
+draw(){ctx.beginPath();ctx.moveTo(this.x,this.y); for(let i=0;i<3;i++){ctx.lineTo(this.x+this.size*Math.cos((i*120)*Math.PI/180),this.y+this.size*Math.sin((i*120)*Math.PI/180));} ctx.closePath(); ctx.fillStyle=this.color; ctx.fill();}
+update(){ this.x+=this.speedX; this.y+=this.speedY; if(this.x<-50||this.x>canvas.width+50||this.y<-50||this.y>canvas.height+50){this.reset();} this.draw();}
 }
 for(let i=0;i<shapeCount;i++){ shapes.push(new Shape()); }
-function animate() {
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  shapes.forEach(s=>s.update());
-  requestAnimationFrame(animate);
-}
+function animate(){ ctx.clearRect(0,0,canvas.width,canvas.height); shapes.forEach(s=>s.update()); requestAnimationFrame(animate);}
 animate();
-window.addEventListener('resize', ()=>{ canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+window.addEventListener('resize',()=>{ canvas.width=window.innerWidth; canvas.height=window.innerHeight; });
 </script>
 
 </body>
 </html>
-
